@@ -7,8 +7,8 @@ permalink:           pretty
 title:               Fylux
 tagline:             'Things'
 description:         'Algorithms, Maths, and all.'
-url:                 'https://fylux.github.io/'
-baseurl:             'https://fylux.github.io/'
+url:                 'https://fylux.github.io'
+baseurl:             'https://fylux.github.io'
 paginate:            5
 
 # About/contact
