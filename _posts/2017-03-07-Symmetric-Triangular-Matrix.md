@@ -10,7 +10,7 @@ So what we would like to have is a data structure that works exactly the same bu
 ## Lower and Upper
 First of all we are going to use a linear array to keep a fast access time and we will calculate the position manually. The triangular matrix can be lower or upper triangular:
 
-<img src="https://fylux.github.io/public/img/TMatrix.jpg" width="48">
+<img src="https://fylux.github.io/public/img/TMatrix.jpg" width="100%">
 
 We are going to use the lower triangular and I'll tell you why later.
 
