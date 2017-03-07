@@ -41,4 +41,4 @@ I just want to add that using half of the memory is a great advantage. The only 
 <br />
 ## Implementation
 I've developed a simple implementation in C++ to play with it.
-https://github.com/fylux/TriangularMatrix
+<a href="https://github.com/fylux/TriangularMatrix">Triangular Matrix Implementation in C++</a>
