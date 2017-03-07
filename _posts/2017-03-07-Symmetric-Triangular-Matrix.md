@@ -7,6 +7,7 @@ If you have worked with graphs you've probably worked with an adjacency matrix. 
 
 So what we would like to have is a data structure that works exactly the same but using half of the memory. We can do it easily just with a bit of calculus. By the way, in a graph we don't usually need the diagonal but in my example I'm going to consider it to make it simpler.
 
+<br />
 ## Lower and Upper
 First of all we are going to use a linear array to keep a fast access time and we will calculate the position manually. The triangular matrix can be lower or upper triangular:
 
@@ -33,10 +34,11 @@ It doesn't require much explanation. Essentially it calculates the corresponding
 
 If you had chosen an upper triangular matrix, the formula would be a little more complex because you are need to calculate something like `n + n-1 + n-2...n-i` and frankly, I prefer to keep things simple.
 
-
+<br />
 ## Probably the best option
 I just want to add that using half of the memory is a great advantage. The only disadvantage of this matrix is that it may have a very little overhead because of using a function to calculate the position. Definitely, it will be damn little the time used in calculus but if the bottleneck of your code is in array indexing and you don't care about using double of memory for the matrix you may want to see if you obtain any advantage using a common adjacency matrix. 
 
+<br />
 ## Implementation
 I've developed a simple implementation in C++ to play with it.
 https://github.com/fylux/TriangularMatrix
