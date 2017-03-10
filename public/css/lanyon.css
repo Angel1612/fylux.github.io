@@ -321,6 +321,7 @@ a.sidebar-nav-item:focus {
 }
 .page-title,
 .post-title {
+	text-align:left;
   margin-top: 0;
 }
 
