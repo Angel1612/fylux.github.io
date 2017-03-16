@@ -40,7 +40,7 @@ The hard part of this is how to find the solutions for those equations. The pape
 
 <br/>
 ## Square Free
-Finally, if after the previous algorithm the number is still a prime candidate we have to check if the number is square free. If it is, ¡the number is prime!
+Finally, if after the previous algorithm the number is still a prime candidate we have to check if the number is square free. If it is, the number is prime!
 <br/>
 By the way, square free means that if you factorize the number you won't find any factor repeated. For example:<br/>
 >12 is not square free because it's equal to 2\*2\*3, and we can see that the factor 2 is repeated.
@@ -50,7 +50,7 @@ How do we know if a number is square free? Well, actually we don't know any algo
 <br/>
 ## Performance
 I'm sure that if you are interested in this algorithm is because of his performance. Unfortunately, I can't swear that this is faster than the Sieve of Eratosthenes. I don't pretend to analyze deeply the reasons, although if you are interested in knowing the details I recommend you to have a look at <a href="http://stackoverflow.com/questions/19388106/the-sieve-of-atkin/22161595#22161595">this answer</a> in StackOverflow.
-<br/>
+<br/><br/>
 Remember that performance is not only about the number of operations that you have to do to obtain the result, is also about cache hits, instructions parallelization, branch predictions and more. 
 
 <br/>
