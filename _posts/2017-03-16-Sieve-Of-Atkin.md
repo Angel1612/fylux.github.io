@@ -9,6 +9,7 @@ If you are interested in this algorithm or the concepts that it covers I beg you
 
 <br/>
 ## Modular Arithmetic
+First we are going to take all the <a href="https://en.wikipedia.org/wiki/Modular_multiplicative_inverse">invertible</a> numbers in Z<sub>60</sub>. Z<sub>60 </sub>represents the natural numbers in module 60. So Z<sub>60</sub> is set of the numbers from 0 to 59. If a number is >= 60 you can convert it to Z<sub>60</sub> by doing the mod 60 operation. And the invertible numbers in Z<sub>n</sub> are those numbers that have a modular multiplicative inverse. Which means that if you multiply the number in Z<sub>n</sub> by another number in Z<sub>n</sub> you obtain 1 in module n. And which are these numbers? The numbers in Z<sub>n</sub> that are  <a href="https://en.wikipedia.org/wiki/Coprime_integers">coprime</a> with n. <br />Two numbers are coprime if their greatest common divisor is 1. For example:
 >5 is the highest number that both 25 and 60 are divisible by.<br/> 
 >The only common divisor of 7 and 60 is 1, so they are coprime.
 
