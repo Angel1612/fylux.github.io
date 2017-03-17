@@ -9,7 +9,6 @@ If you are interested in this algorithm or the concepts that it covers I beg you
 
 <br/>
 ## Modular Arithmetic
-First we are going to take all the <a href="https://en.wikipedia.org/wiki/Modular_multiplicative_inverse">invertible</a> numbers in Z<sub>60</sub>. Z<sub>60 </sub>represents the natural numbers in module 60. So Z<sub>60</sub> is set of the numbers from 0 to 59.  If a number is >= 60 you can convert it to Z<sub>60</sub> by doing the mod 60 operation. And the invertible numbers in Z<sub>n</sub> are those numbers that have a modular multiplicative inverse. Which means that if you multiply the number in Z<sub>n</sub> by another number in Z<sub>n</sub> you obtain 1 in module n. And which are these numbers? The numbers in Z<sub>n</sub> that are  <a href="https://en.wikipedia.org/wiki/Coprime_integers">coprime</a> with n. <br />Two numbers are coprime if their Greatest Common Divisor is 1. For example:
 >5 is the highest number that both 25 and 60 are divisible by.<br/> 
 >The only common divisor of 7 and 60 is 1, so they are coprime.
 
@@ -49,7 +48,7 @@ How do we know if a number is square free? Well, actually we don't know any algo
 
 <br/>
 ## Performance
-I'm sure that if you are interested in this algorithm is because of his performance. Unfortunately, I can't swear that this is faster than the Sieve of Eratosthenes. I don't pretend to analyze deeply the reasons, although if you are interested in knowing the details I recommend you to have a look at <a href="http://stackoverflow.com/questions/19388106/the-sieve-of-atkin/22161595#22161595">this answer</a> in StackOverflow.
+I'm sure that if you are interested in this algorithm is because of his performance. Unfortunately, I can't swear that this is faster than the <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">Sieve of Eratosthenes</a>. I don't pretend to analyze deeply the reasons, although if you are interested in knowing the details I recommend you to have a look at <a href="http://stackoverflow.com/questions/19388106/the-sieve-of-atkin/22161595#22161595">this answer</a> in StackOverflow.
 <br/><br/>
 Remember that performance is not only about the number of operations that you have to do to obtain the result, is also about cache hits, instructions parallelization, branch predictions and more. 
 
@@ -61,7 +60,7 @@ I've implemented this algorithm focusing on making the code illustrative and sim
 
 
 ## Acknowledgements
-I want to thank Dr. Gema M. Díaz her support, especially for understanding the original paper which requires a good mathematical background. I also want to thank her for her implementation of this sieve in Maple. 
+I want to thank Dr. G.M. Diaz-Toca her support, especially for understanding the original paper which requires a good mathematical background. I also want to thank her for her implementation of this sieve in Maple. 
 
 ## References
 A.O.L. Atkin, D.J. Bernstein, <a href="http://www.ams.org/mcom/2004-73-246/S0025-5718-03-01501-1/S0025-5718-03-01501-1.pdf">Prime sieves using binary quadratic forms</a>, Math. Comp. 73 (2004), 1023-1030.
