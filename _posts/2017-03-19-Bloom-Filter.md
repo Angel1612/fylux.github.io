@@ -8,6 +8,7 @@ The world is full of interesting data structures. Today I want to cover the Bloo
 Basically, is a *probabilistic* data structure that using a significant small amount of space let us know if an element is in a set. Well not exactly that. It can tell us two things:
  - The element may be in the set.
  - The element is definitely not in the set.
+<br/>
 And that's all it can do well.
 <br/>
 Uhm, definitely it looks curious. "May be in the set?" Usually we work with data structures that tell us things for sure. But that is the cost of using much less space. Let's have a look.
@@ -17,7 +18,6 @@ Uhm, definitely it looks curious. "May be in the set?" Usually we work with data
 We are going to start with a <a href="https://en.wikipedia.org/wiki/Hash_table">hash table</a>. I suppose that you know how a hash table works. This hash table has *N* buckets. And each bucket consists of a 1-bit boolean (actually this is a <a href="https://en.wikipedia.org/wiki/Bit_array">Bit Vector</a>). So the size of the table is *N/8* bytes.
 <br/>
 <img src="https://fylux.github.io/public/img/empty_table.png" width="100%">
-<br/>
 Very fast hash functions are important to ensure a fast Bloom Filter. We are going to use more than one hash function to ensure that we reduce *false positives*. For example the functions <a href="https://en.wikipedia.org/wiki/SipHash">SipHash</a> and <a href="https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function#FNV-1_hash">Fnv</a> look interesting.
 <br/>
 Essentially we are going to apply the hash functions to the element that we are inserting. Each function will return an index in the table. And all we have to do is to mark as true that bit of the table if is not true yet.
@@ -44,7 +44,10 @@ We can see the that both bits are marked as true. So "you" can be in the set. Al
 <br/>
 ## False Positives
 Ok, but now we want to know how we can choose the size of our Bloom Filter so that we can obtain a reasonable *false positives* rate. Actually the chance of a *false positive* is approximately:<br/>
-$$(1-e^{-kn/m})^k$$<br/>
+$$
+(1-e^{-kn/m})^k
+$$
+<br/>
 Where *n* is the amount of elements in the set, *m* the number of buckets and *k* the number of hash functions used. You must choose the parameters according to your needs.
 
 <br/>
