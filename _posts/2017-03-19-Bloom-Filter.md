@@ -9,8 +9,8 @@ Basically, is a *probabilistic* data structure that using a significant small am
 * The element may be in the set.
 * The element is definitely not in the set.
 
-And that's all it can do well.
-<br/>
+And that's all it can do well.<br/>
+
 Uhm, definitely it looks curious. "May be in the set?" Usually we work with data structures that tell us things for sure. But that is the cost of using much less space. Let's have a look.
 
 <br/>
@@ -18,10 +18,10 @@ Uhm, definitely it looks curious. "May be in the set?" Usually we work with data
 We are going to start with a <a href="https://en.wikipedia.org/wiki/Hash_table">hash table</a>. I suppose that you know how a hash table works. This hash table has *N* buckets. And each bucket consists of a 1-bit boolean (actually this is a <a href="https://en.wikipedia.org/wiki/Bit_array">Bit Vector</a>). So the size of the table is *N/8* bytes.
 <br/>
 <img src="https://fylux.github.io/public/img/empty_table.png" width="100%">
-Very fast hash functions are important to ensure a fast Bloom Filter. We are going to use more than one hash function to ensure that we reduce *false positives*. For example the functions <a href="https://en.wikipedia.org/wiki/SipHash">SipHash</a> and <a href="https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function#FNV-1_hash">Fnv</a> look interesting.
-<br/>
-Essentially we are going to apply the hash functions to the element that we are inserting. Each function will return an index in the table. And all we have to do is to mark as true that bit of the table if is not true yet.
-<br/>
+Very fast hash functions are important to ensure a fast Bloom Filter. We are going to use more than one hash function to ensure that we reduce *false positives*. For example the functions <a href="https://en.wikipedia.org/wiki/SipHash">SipHash</a> and <a href="https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function#FNV-1_hash">Fnv</a> look interesting.<br/>
+
+Essentially we are going to apply the hash functions to the element that we are inserting. Each function will return an index in the table. And all we have to do is to mark as true that bit of the table if is not true yet.<br/>
+
 The process is pretty much the same to ask for an element. We apply the hash functions and we obtain the index. If any of the bits is false, it is definitely not in the set. And if all the bits are true, it might be. Why? That's because those bits could have been marked by the insertion of that element or by another element which has produced a similar hash code. So we are not sure. The more collisions we have the more likely we obtain *false positives*.
 
 <br/>
