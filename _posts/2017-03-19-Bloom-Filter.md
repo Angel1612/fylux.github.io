@@ -54,7 +54,6 @@ Let's look at this example. We have a Bloom Filter of `N=6` and two hash functio
 Our Bloom Filter looks like this:
 <br/>
 <img src="https://fylux.github.io/public/img/not_empty_table.png" width="100%">
-<br/>
 Now, if we ask for the element "seen":<br/>
 `h1("seen") = 3, h2("seen") = 0`<br/>
 We can see that one of those bits is set to false, so "seen" is not in the set. However, if we ask for the element "you":<br/>
