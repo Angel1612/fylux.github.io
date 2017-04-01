@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About Me
+title: About
 ---
 Hi, I'm **Alfonso**. That's all the personal stuff that I'm going to say.
 
