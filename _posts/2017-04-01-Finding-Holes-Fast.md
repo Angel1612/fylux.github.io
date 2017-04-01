@@ -68,5 +68,5 @@ Finally we see that our last candidate is node 4, and if we check its row and co
 ## Implementation
 I've developed an implementation of this algorithm to prove that our reasoning is correct:
 
-<a href="https://github.com/fylux/">Implementation in C++</a>
+<a href="https://github.com/fylux/FindingHoles">Implementation in C++</a>
 
