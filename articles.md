@@ -4,11 +4,9 @@ title: Articles
 ---
 <table>
 {% for post in site.posts %}    
-<h3>
-    <tr>
-    <td><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></td>
-    <td><small>{{ post.date | date_to_string }}</small></td>
-    </tr>
-</h3>
+<tr>
+    <td style="text-align:left;"><h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3></td>
+    <td style="text-align:right;">{{ post.date | date_to_string }}</td>
+</tr>
 {% endfor %} 
 </table>
