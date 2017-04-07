@@ -29,7 +29,7 @@ I'm going to consider the two data structures, a list and a matrix. First we sho
  - List: The nth list has no elements and every other list has the element *n*. I consider $$O(1)$$ the operation to obtain how many elements are in a list.
 
 ### Matrix
-So the first idea is to search for a row full of zeros in the matrix and then check if its row is full of ones. Unfortunately, we can notice easily that this has a cost of $$O(n^2)$$,. 
+So the first idea is to search for a row full of zeros in the matrix and then check if its row is full of ones. Unfortunately, we can notice easily that this has a cost of $$O(n^2)$$. 
 
 <center><img src="https://fylux.github.io/public/img/holes/matrix.png" width="40%"></center>
 
