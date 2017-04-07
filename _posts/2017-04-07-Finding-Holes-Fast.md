@@ -33,12 +33,12 @@ I'm going to consider the two data structures, a list and a matrix. First we sho
  - List: The nth list has no elements and every other list has the element *n*. I consider $$O(1)$$ the operation to obtain how many elements are in a list.
 
 ### Matrix
-So the first idea is to search for a row full of zeros in the matrix and then check if its row is full of ones. Unfortunately, we can notice easily that this has a cost of $$O(n^2)$$. 
+So the first idea is to search for a row full of zeros in the matrix and then check if its row is full of ones. Unfortunately, we can notice easily that this search has $$O(n^2)$$. 
 
 <center><img src="https://fylux.github.io/public/img/holes/matrix.png" width="40%"></center>
 
 ## List
-Pretty much the same with the list. First we look for a list *n* without elements and then we look for that *n* in each other list. We know that if there is more than one list without elements, there cannot be a hole. But if there is a hole the cost is $$O(n^2)$$, which is the cost of looking for *n* in all the lists.
+Pretty much the same with the list. First we look for a list *n* without elements and then we look for that *n* in each other list. We know that if there is more than one list without elements, there cannot be a hole. But if there is a hole the algorithm has $$O(n^2)$$, which is the cost of looking for *n* in all the lists.
 
 <center><img src="https://fylux.github.io/public/img/holes/list.png" width="70%"></center>
 
