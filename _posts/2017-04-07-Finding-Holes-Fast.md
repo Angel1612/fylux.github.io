@@ -5,7 +5,7 @@ title: Finding Holes Fast
 ## Introduction
 Suppose a directed graph. We will define "hole" as a node that doesn't point at any node and it's pointed by every node of the graph (except itself).
 
-The task is to find all the holes in a graph, given a common <a href="https://en.wikipedia.org/wiki/Adjacency_matrix">adjacency matrix</a> or <a href="https://en.wikipedia.org/wiki/Adjacency_list">adjacency list</a>. A common one. No data structure changes are allowed. And we want to find it in <a href="https://en.wikipedia.org/wiki/Time_complexity">linear time</a>, $$O(n)$$. Ambitious, isn't it?
+The task is to find all the holes in a graph, given a common <a href="https://en.wikipedia.org/wiki/Adjacency_matrix">adjacency matrix</a> or <a href="https://en.wikipedia.org/wiki/Adjacency_list">adjacency list</a>. A common one. No data structure changes are allowed. And we want to find it in <a href="https://en.wikipedia.org/wiki/Time_complexity">linear time</a>, $$O(V)$$. Ambitious, isn't it?
 
 
 By the way, maybe you prefer to think about how to solve before seeing the solution. It's neither trivial nor impossible.
@@ -33,12 +33,12 @@ I'm going to consider the two data structures, a list and a matrix. First we sho
  - List: The nth list has no elements and every other list has the element *n*. I consider $$O(1)$$ the operation to obtain how many elements are in a list.
 
 ### Matrix
-So the first idea is to search for a row full of zeros in the matrix and then check if its row is full of ones. Unfortunately, we can notice easily that this search has $$O(n^2)$$. 
+So the first idea is to search for a row full of zeros in the matrix and then check if its column is full of ones. Unfortunately, we can notice easily that this search has $$O(V^2)$$. 
 
 <center><img src="https://fylux.github.io/public/img/holes/matrix.png" width="40%"></center>
 
 ## List
-Pretty much the same with the list. First we look for a list *n* without elements and then we look for that *n* in each other list. We know that if there is more than one list without elements, there cannot be a hole. But if there is a hole the algorithm has $$O(n^2)$$, which is the cost of looking for *n* in all the lists.
+Pretty much the same with the list. First we look for a list *n* without elements and then we look for that *n* in each other list. We know that if there is more than one list without elements, there cannot be a hole. But if there is a hole the algorithm has $$O(V+E)$$, which is the cost of looking for *n* in all the lists.
 
 <center><img src="https://fylux.github.io/public/img/holes/list.png" width="70%"></center>
 
@@ -56,7 +56,7 @@ Therefore, an interesting approach is to compare nodes in pairs and discard node
 
 <br/>
 ## Example
-Let's try this idea with our example graph.
+Let's try this idea with our example graph and an adjacency matrix.
 
  - Take node 0 and node 1.
  - Node 1 points at node 0, so 0 may be a hole.
@@ -69,7 +69,7 @@ Finally we see that our last candidate is node 4, and if we check its row and co
 
 
 ## Implementation
-I've developed an implementation of this algorithm to prove that our reasoning is correct:
+I've developed an implementation of this algorithm to show how our reasoning works:
 
 <a href="https://github.com/fylux/FindingHoles">Implementation in C++</a>
 
