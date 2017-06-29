@@ -1,6 +1,6 @@
 ---
 layout: post
-title: List vs Vector
+title: List vs Vector&#58; A Performance Comparison
 ---
 ## Introduction
 I would dare to say that <a href="https://en.wikipedia.org/wiki/Linked_list">linked lists</a> and <a href="https://en.wikipedia.org/wiki/Array_data_structure">vectors</a> are the most widely used data structures. Supposedly, we all know which one is better of each task so we can choose wisely. However, the reasoning for choosing a data structure are mostly based in the famous <a href="https://en.wikipedia.org/wiki/Big_O_notation">Big-O notation</a>. Unfortunately, this notation doesn't consider the details of computers so it could lead us astray.
@@ -104,4 +104,4 @@ After this analysis I guess that there is no doubt about which data structure is
 
 <br/>
 ## Code
-The code used and the tests developed in this article can be found <a href="https://github.com/fylux/fylux.github.io/tree/master/public/code">here</a> as well as the hardware and software used.
+The code used and the tests developed in this article can be found <a href="https://github.com/fylux/fylux.github.io/tree/master/public/code/list_vec">here</a> as well as the hardware and software used.
