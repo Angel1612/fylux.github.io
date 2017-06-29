@@ -3,7 +3,7 @@ layout: post
 title: List vs Vector&#58; A Performance Comparison
 ---
 ## Introduction
-I would dare to say that <a href="https://en.wikipedia.org/wiki/Linked_list">linked lists</a> and <a href="https://en.wikipedia.org/wiki/Array_data_structure">vectors</a> are the most widely used data structures. Supposedly, we all know which one is better of each task so we can choose wisely. However, the reasoning for choosing a data structure are mostly based in the famous <a href="https://en.wikipedia.org/wiki/Big_O_notation">Big-O notation</a>. Unfortunately, this notation doesn't consider the details of computers so it could lead us astray.
+I would dare to say that <a href="https://en.wikipedia.org/wiki/Linked_list">linked lists</a> and <a href="https://en.wikipedia.org/wiki/Array_data_structure">vectors</a> are the most widely used data structures. Supposedly, we all know which one is better of each task so we can choose wisely. However, the reasoning for choosing a data structure is mostly based in the famous <a href="https://en.wikipedia.org/wiki/Big_O_notation">Big-O notation</a>. Unfortunately, this notation doesn't consider the details of computers so it could lead us astray.
 
 
 In this article, I am going to compare the performance of linked lists against vectors when we want to store elements in order of insertion (*<a href="http://www.cplusplus.com/reference/vector/vector/push_back/">push_back</a>*). This is one of the few cases where I consider linked lists to be a good choice. I won't cover random insertion and elimination because there is no doubt about the poor performance of vectors in that case.
@@ -17,17 +17,17 @@ Let's start thinking about which results should be expected.
 
 
 ### Algorithmics
-If we have a double linked list or a linked list with a pointer to the end of the list the cost of inserting an element at the end will be constant. There is no doubt about it; this process will be always the same.
+If we have a double linked list or a linked list with a pointer to the end of the list, the cost of inserting an element at the end will be constant. There is no doubt about it; this process will be always the same.
 
 
-Nevertheless, this is quite different in vectors. If we are using arrays, we can't have many chunks of memory connected by pointers, we only can have a big chunk of contiguous memory. This means that if we want to have the same memory occupied as elements are stored we will have to reallocate all the memory in each insertion. However, reallocating has a linear cost that we cannot tolerate in each insertion. However, this problem is well known and vectors usually reserve more memory than it's needed to prevent it. The most common strategy once the array is full is to reserve a new array twice the capacity. Obviously, this will affect the memory usage of our program but it's something that we will discuss later.
+Nevertheless, this is quite different in vectors. If we are using arrays, we can't have many chunks of memory connected by pointers, we only can have a big chunk of contiguous memory. This means that if we want to have the same memory occupied as elements are stored we will have to reallocate all the memory in each insertion. But, reallocating has a linear cost that we cannot tolerate in each insertion. However, this problem is well known and vectors usually reserve more memory than it's needed to prevent it. The most common strategy once the array is full is to reserve a new array twice the capacity. Obviously, this will affect the memory usage of our program but it's something that we will discuss later.
 
 
-Therefore we can suppose that the performance of lists will be better than vectors, because the latter has a worse case linear although it occurs only when is full, but hey, lists doesn't have this drawback.
+Therefore we can suppose that the performance of lists will be better than vectors, because the latter's worst case requires linear time, although it occurs only when is full; but hey, lists doesn't have this drawback.
 
 <br/>
 ### Architecture
-As I said before, theory isn't everything. Modern computers performance depends on many factors. Some of the most important are <a href="https://en.wikipedia.org/wiki/CPU_cache#Cache_miss">cache misses</a> and <a href="https://en.wikipedia.org/wiki/Locality_of_reference">space locality</a>. If you are not familiar with this topic I recommend you to take look at <a href="https://stackoverflow.com/a/16699282">this</a> explanation. But basically, what we look for it to have as much *useful* information per memory block as possible. And don't overlook the word *useful*.
+As I said before, theory isn't everything. Modern computers performance depends on many factors. Some of the most important are <a href="https://en.wikipedia.org/wiki/CPU_cache#Cache_miss">cache misses</a> and <a href="https://en.wikipedia.org/wiki/Locality_of_reference">space locality</a>. If you are not familiar with this topic I recommend you to take look at <a href="https://stackoverflow.com/a/16699282">this</a> explanation. But basically, what we are looking for is having as much *useful* information per memory block as possible. And don't overlook the word *useful*.
 
 
 When we use arrays is well known that all the data is contiguous and therefore no pointers are required. This means that a memory block will be completely filled with the elements of the array.
@@ -43,10 +43,10 @@ Hence linked lists don't look so nice when working with small elements, because 
 
 <br/>
 ## Performance
-As we have seen, is not clear what results should be expected. The benefits of vectors related with space locality are clear, but we don't know how will affect the cost of reallocating all the elements when it's full.
+As we have seen, it's not clear what results should be expected. The benefits of vectors related with space locality are clear, but we don't know how the cost of reallocating all the elements will affect when it's full.
 
 
-In our first test we will compare the time required to store 1,100,000 8 bytes elements in a list and a vector. This number has been specifically chosen to unsure that we will reallocate the vector almost just after finishing because is a bit more than 2^20.
+In our first test we will compare the time required to store 1,100,000 8 bytes elements in a list and a vector. This number has been specifically chosen to unsure that we will reallocate the vector almost just after finishing because it's a bit more than 2^20.
 
 <img src="https://fylux.github.io/public/img/list_vec/worst_case.png" width="100%">
 
