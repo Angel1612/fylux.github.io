@@ -54,20 +54,23 @@ The first step is finding the shortest path between every pair of nodes. What wi
 Nevertheless, we have to choose an algorithm to find those paths. A very simple one is the <a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm">Floyd-Warshall Algorithm</a>, which computational cost is $$O(V^3)$$. This is not bat for complete graphs, where the number of edges is V<sup>2</sup>. However, this is a sparse graph so the number of edges will be rather smaller than V<sup>2</sup>. Therefore, algorithms which computational cost rely mainly on the number of edges will be more suitable.
 
 
+
+
 Thus we can consider <a href="https://en.wikipedia.org/wiki/Johnson's_algorithm">Johnson's Algorithm</a>, which given the characteristics of this problem will consist in basically running Dijkstra's Algorithm V times. So the cost will be $$( EV + V^2\log V)$$. It would be quite interesting to try <a href="https://en.wikipedia.org/wiki/Shortest_path_problem#All-pairs_shortest_paths">Thorup's Algorithm</a> for undirected graphs which computational cost is $$O(VE)$$, however, is little known and requires constant-time multiplication, so for this algorithm we will use Dijkstra.
 
 
 Ok, we apply Dijkstra's Algorithm V times but, how do we store the information? This is quite important because the wrong decision would soar the memory usage. Firstly, we need a V by V matrix to store the weight of the real and virtual edges between nodes. Secondly, we need a way to reconstruct the virtual tour that we get. So we need to store the sequence of nodes that form the path the shortest path between nodes. However, storing all the sequence would a have memory usage proportional to V<sup>3</sup> in the worst case. This is huge because for instances of only 1,000 cities we would need almost 1GB. Nevertheless, we can store the same information using V<sup>2</sup> through the following reasoning:
 
-*If the shortest path between node A and C crosses node B, the path can be composed by the shortest path between A and B and the shortest path between B and C.*
+>If the shortest path between node A and C crosses node B, the path can be composed by the shortest path between A and B and the shortest path between B and C.
 
-Hence in each position [i][j] of the matrix we will store the first node in the sequence of the path, like in this example:
+Hence in each position [x][y] of the matrix we will store the first node in the sequence of the path, like in this example:
 <center>
-<img src="https://fylux.github.io/public/img/sparse_tsp/matrix.png" width="25%"> <img src="https://fylux.github.io/public/img/sparse_tsp/3_nodes.png" width="60%">
+<img src="https://fylux.github.io/public/img/sparse_tsp/matrix.png" width="25%"style="display:inline;vertical-align:middle"><img src="https://fylux.github.io/public/img/sparse_tsp/3_nodes.png" width="60%" style="display:inline;vertical-align:middle">
 </center>
 
 This way we can find recursively the shortest path between each pair of nodes.
 
+PS: If the graph is undirected you should consider using a <a href="https://fylux.github.io/2017/03/07/Symmetric-Triangular-Matrix/">triangular matrix</a> to reduce by a half the memory usage.
 
 ### TSP Algorithm
 At this point we already have an adjacency matrix that defines our new complete graph with virtual edges. However, we said that in this step we would treat the problem as an standard TSP, so our algorithm won't notice that we have added new edges to complete the graph.
