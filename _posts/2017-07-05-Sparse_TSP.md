@@ -65,7 +65,7 @@ Ok, we apply Dijkstra's Algorithm V times but, how do we store the information? 
 
 Hence in each position [x][y] of the matrix we will store the first node in the sequence of the path, like in this example:
 <center>
-<img src="https://fylux.github.io/public/img/sparse_tsp/matrix.png" width="25%"style="display:inline;vertical-align:middle"><img src="https://fylux.github.io/public/img/sparse_tsp/3_nodes.png" width="60%" style="display:inline;vertical-align:middle">
+<img src="https://fylux.github.io/public/img/sparse_tsp/matrix.png" width="25%"style="display:inline;vertical-align:middle"><img src="https://fylux.github.io/public/img/sparse_tsp/3_nodes.png" width="60%"style="display:inline;vertical-align:middle">
 </center>
 
 This way we can find recursively the shortest path between each pair of nodes.
