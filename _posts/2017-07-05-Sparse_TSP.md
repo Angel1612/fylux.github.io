@@ -29,7 +29,7 @@ The main idea of this variation of the problem is that you may not be able go fr
 However, this problem adds some complexity because in the standard TSP you will always be able to go directly to a node that you haven't visited yet. Nevertheless, in the sparse variation you might reach a node where all the adjacent nodes have already been visited, so you have to return to one of the visited nodes to reach a node that haven't been visited yet. That's why you should be able to repeat nodes.
 
 
-Alright, if you want to move between two non-adjacent nodes you should take the shortest path. For that task, you can use <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra's Algorithm</a>. However, if you have to apply it for every node along the program execution it will have a big computational cost and will add complexity to our tour construction algorithm.
+Alright, if you want to move between two non-adjacent nodes you should take the shortest path. For that task, you can use <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra's Algorithm</a>. However, if you have to apply it for every node along the program execution it will have a big computational cost and it will add complexity to our tour construction algorithm.
 
 
 ### Approach
@@ -59,11 +59,11 @@ Nevertheless, we have to choose an algorithm to find those paths. A very simple 
 Thus we can consider <a href="https://en.wikipedia.org/wiki/Johnson's_algorithm">Johnson's Algorithm</a>, which given the characteristics of this problem will consist in basically running Dijkstra's Algorithm V times. So the cost will be $$( EV + V^2\log V)$$. It would be quite interesting to try <a href="https://en.wikipedia.org/wiki/Shortest_path_problem#All-pairs_shortest_paths">Thorup's Algorithm</a> for undirected graphs which computational cost is $$O(VE)$$, however, is little known and requires constant-time multiplication, so for this algorithm we will use Dijkstra.
 
 
-Ok, we apply Dijkstra's Algorithm V times but, how do we store the information? This is quite important because the wrong decision would soar the memory usage. Firstly, we need a V by V matrix to store the weight of the real and virtual edges between nodes. Secondly, we need a way to reconstruct the virtual tour that we get. So we need to store the sequence of nodes that form the path the shortest path between nodes. However, storing all the sequence would a have memory usage proportional to V<sup>3</sup> in the worst case. This is huge because for instances of only 1,000 cities we would need almost 1GB. Nevertheless, we can store the same information using V<sup>2</sup> through the following reasoning:
+Ok, we apply Dijkstra's Algorithm V times but, how do we store the information? This is quite important because the wrong decision would soar the memory usage. Firstly, we need a V by V matrix to store the weight of the real and virtual edges between nodes. Secondly, we need a way to reconstruct the virtual tour that we get. So we need to store the sequence of nodes that form the shortest path between each pair of nodes. However, storing all the sequence would a have memory usage proportional to V<sup>3</sup> in the worst case. This is huge because for instances of only 1,000 cities we would need almost 1GB. Nevertheless, we can store the same information using V<sup>2</sup> through the following reasoning:
 
 >If the shortest path between node A and C crosses node B, the path can be composed by the shortest path between A and B and the shortest path between B and C.
 
-Hence in each position [x][y] of the matrix we will store the first node in the sequence of the path, like in this example:
+Hence in each position [x][y] of the matrix we will store the first node in the sequence of the shortest path, like in this example:
 <center>
 <img src="https://fylux.github.io/public/img/sparse_tsp/matrix.png" width="25%" style="display:inline;vertical-align:middle"><img src="https://fylux.github.io/public/img/sparse_tsp/3_nodes.png" width="60%" style="display:inline;vertical-align:middle">
 </center>
@@ -92,11 +92,11 @@ Because I've worked quite a lot with this problem I've already implemented all t
 
 <br/>
 ## Further Research
-Although there are many details that can be modified in TSP algorithm to optimize them for this problem, there is one in particular that I consider very interesting. 
+Although there are many details that can be modified in TSP algorithms to optimize them for this problem, there is one in particular that I consider very interesting. 
 
 
 If you only work with virtual edges, a standard algorithm won't mark as visited the nodes crossed along the path between two nodes. Therefore, it would be interesting to use an algorithm that considers this particularity.
 
 <br/>
 ## Conclusion
-TSP is one of the most important problems in Computer Science. However, ofte we won't have and ideal complete graph but a sparse one. In this article, we've explained an approach to model the problem as a standard TSP allowing us to use state of the TSP algorithms.
+TSP is one of the most important problems in Computer Science. However, often we won't have and ideal complete graph but a sparse one. In this article, we've explained an approach to model the problem as a standard TSP allowing us to use state of the TSP algorithms.
