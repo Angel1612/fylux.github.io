@@ -8,14 +8,14 @@ Suppose a directed graph. We will define "hole" as a node that doesn't point at 
 The task is to find all the holes in a graph, given a common <a href="https://en.wikipedia.org/wiki/Adjacency_matrix">adjacency matrix</a> or <a href="https://en.wikipedia.org/wiki/Adjacency_list">adjacency list</a>. A common one. No data structure changes are allowed. And we want to find it in <a href="https://en.wikipedia.org/wiki/Time_complexity">linear time</a>, $$O(V)$$. Ambitious, isn't it?
 
 
-By the way, maybe you prefer to think about how to solve before seeing the solution. It's neither trivial nor impossible.
+By the way, maybe you prefer to think about how to solve it before seeing the solution. It's neither trivial nor impossible.
 
 <br/>
 ## Simplifying
 First of all, we should analyze the problem, so maybe we can make it simpler. We are searching *holes*, but, how many *holes* can exist in a graph? Actually, only one. Why?
 
 
-Remember the definition of *hole*. It's pointed by every node and it doesn't point at any node. Suppose we had two holes, *n1* and *n2*. Because they are *holes*, they must be pointed by all the nodes. Which means that *n1* must be pointed by *n2* and vice versa. But if it they point at each other they are pointing to a node, so they can't be *holes*.
+Remember the definition of *hole*. It's pointed by every node and it doesn't point at any node. Suppose we had two holes, *A* and *B*. Because they are *holes*, they must be pointed by all the nodes. Which means that *A* must be pointed by *B* and vice versa. But if it they point at each other they are pointing to a node, so they can't be *holes*.
 
 
 First lemma: *A graph has one or none holes*.
@@ -38,13 +38,13 @@ So the first idea is to search for a row full of zeros in the matrix and then ch
 <center><img src="https://fylux.github.io/public/img/holes/matrix.png" width="40%"></center>
 
 ## List
-Pretty much the same with the list. First we look for a list *n* without elements and then we look for that *n* in each other list. We know that if there is more than one list without elements, there cannot be a hole. But if there is a hole the algorithm has $$O(V+E)$$, which is the cost of looking for *n* in all the lists.
+Pretty much the same with lists. First we look for a list *n* without elements and then we look for that *n* in each other list. We know that if there is more than one list without elements, there cannot be a hole. But if there is a hole the algorithm has $$O(V+E)$$, which is the cost of looking for *n* in all the lists.
 
 <center><img src="https://fylux.github.io/public/img/holes/list.png" width="70%"></center>
 
 <br/>
 ## Think Different
-Let's think in a different way. Forget about how holes look in the structures and think about the relationship between nodes. We know the definition of *hole*. So given two nodes of the graph and its corresponding edge, can we know if any of them is a *hole*? The answer is yes.
+Let's think in a different way. Forget about how holes look in the structures and think about the relationship between nodes. We know the definition of *hole*. So given two nodes of the graph and their corresponding edge, can we know if any of them is a *hole*? The answer is yes.
 
 There are 3 possible scenarios:
  - Node *x* points at Node *y* -> Node *y* may be a *hole*
@@ -71,5 +71,6 @@ Finally we see that our last candidate is node 4, and if we check its row and co
 ## Implementation
 I've developed an implementation of this algorithm to show how our reasoning works:
 
-<a href="https://github.com/fylux/FindingHoles">Implementation in C++</a>
+<a href="https://github.com/fylux/FindingHoles/tree/master/C%2B%2B">Implementation in C++</a>
+<a href="https://github.com/fylux/FindingHoles/tree/master/Python">Implementation in Python</a>
 

@@ -3,9 +3,9 @@ layout: post
 title: Symmetric Triangular Matrix
 ---
 ## Introduction
-If you have worked with graphs you've probably made use of an <a href="https://en.wikipedia.org/wiki/Adjacency_matrix">adjacency matrix</a>. But if your graph is undirected, you can notice that the element `[i][j] = [j][i]`. Something similar happens when doing DFA Minimization. Unfortunately, this way we are "wasting" half of the memory and it doesn't sound good.
+If you have worked with graphs you've probably made use of an <a href="https://en.wikipedia.org/wiki/Adjacency_matrix">adjacency matrix</a>. But if your graph is undirected, you can notice that the element [i][j] is equal to [j][i]. Something similar happens when doing DFA Minimization. Unfortunately, this way we are "wasting" half of the memory and it doesn't sound good.
 
-So what we would like to have is a data structure that works exactly the same but using half of the memory. We can do it easily just with a bit of calculus. By the way, in a graph we don't usually need the diagonal but in my example I'm going to consider it to make it simpler.
+So what we would like to have is a data structure that works exactly the same way but using half of the memory. We can do it easily just with a bit of calculus. By the way, in a graph we don't usually need the diagonal but in my example I'm going to consider it to make it simpler.
 
 <br />
 ## Lower and Upper
@@ -17,22 +17,22 @@ We are going to use the lower triangular and I'll tell you why later.
 
 The size of the array instead of $$N*N$$ will be:
 $$
-1 + 2 + 3 + ... + N = \frac{(N^2+N)}{2}
+1 + 2 + 3 + ... + N = \frac{N^2+N}{2}
 $$
 an <a href="https://en.wikipedia.org/wiki/Arithmetic_progression">arithmetic progression</a>, isn't it?
 
-Now to obtain the position `(i,j)` in the matrix, we will do the following:
+Now to obtain the position (i,j) in the matrix, we will do the following:
 
-Because it is lower triangular, if `j` is greater than `i`, then `i=j` and `j=i`.
+Because it is lower triangular, if *j* is greater than *i*, then *i=j* and *j=i*.
 So the index in the linear array is:
 
 $$
 index = \frac{i^2+i}{2} + j
 $$
 
-It doesn't require much explanation. Essentially we calculate the corresponding `i` position using the arithmetic progression and then we add `j`.
+It doesn't require much explanation. Essentially we calculate the corresponding *i* position using the arithmetic progression and then we add *j*.
 
-If you had chosen an upper triangular matrix, the formula would be a little more complex because you would need to calculate something like `n + n-1 + n-2...n-i` and I prefer to keep things as simple as possible.
+If you had chosen an upper triangular matrix, the formula would be a little more complex because you would need to calculate something like *n + n-1 + n-2...n-i* and I prefer to keep things as simple as possible.
 
 <br />
 ## Conclusion

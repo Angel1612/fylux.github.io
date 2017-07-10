@@ -26,7 +26,7 @@ The process is pretty much the same to ask for an element. We apply the hash fun
 
 <br/>
 ## Example
-Let's look at this example. We have a Bloom Filter of `N=6` and two hash functions (*h1* and *h2*), where we've inserted a few words and these are the hash that they have produced:
+Let's look at this example. We have a Bloom Filter of N=6 and two hash functions (*h1* and *h2*), where we've inserted a few words and these are the hash that they have produced:
 <table>
   <thead>
     <tr>

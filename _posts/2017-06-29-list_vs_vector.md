@@ -20,7 +20,7 @@ Let's start thinking about which results should be expected.
 If we have a double linked list or a linked list with a pointer to the end of the list, the cost of inserting an element at the end will be constant. There is no doubt about it; this process will be always the same.
 
 
-Nevertheless, this is quite different in vectors. If we are using arrays, we can't have many chunks of memory connected by pointers, we only can have a big chunk of contiguous memory. This means that if we want to have the same memory occupied as elements are stored we will have to reallocate all the memory in each insertion. But, reallocating has a linear cost that we cannot tolerate in each insertion. However, this problem is well known and vectors usually reserve more memory than it's needed to prevent it. The most common strategy once the array is full is to reserve a new array twice the capacity. Obviously, this will affect the memory usage of our program but it's something that we will discuss later.
+Nevertheless, it is quite different in vectors. If we are using arrays, we can't have many chunks of memory connected by pointers, we can only have a big chunk of contiguous memory. This means that if we want to have the same memory occupied as elements are stored we will have to reallocate all the memory in each insertion. But, reallocating has a linear cost that we cannot tolerate in each insertion. However, this problem is well known and vectors usually reserve more memory than it's needed to prevent it. The most common strategy once the array is full is to reserve a new array twice the capacity. Obviously, this will affect the memory usage of our program but it's something that we will discuss later.
 
 
 Therefore we can suppose that the performance of lists will be better than vectors, because the latter's worst case requires linear time, although it occurs only when is full; but hey, lists doesn't have this drawback.
@@ -33,7 +33,7 @@ As I said before, theory isn't everything. Modern computers performance depends 
 When we use arrays is well known that all the data is contiguous and therefore no pointers are required. This means that a memory block will be completely filled with the elements of the array.
 
 
-However, when we use linked lists we need to store pointers next to each element of the list. Therefore, in a block of memory we will find pointers and elements. Unfortunately, these pointers will occupy memory that could be filled by more elements. The effect that this will have in performance will depend on the size of the elements.
+However, when we use linked lists we need to store pointers next to each element of the list. Therefore, in a block of memory we will find pointers and elements. Unfortunately, these pointers will occupy memory that could be filled by more elements. The effect that it will have on performance will depend on the size of the elements.
 
 
 In most 64 bits computers, pointers occupy 8 bytes of memory. That is quite a lot. If you are using a double linked list like C++ STL <list> you will be using 16 bytes for pointers per element. Thus if you store in each node 1 MB you won't notice the size of pointers and it won't matter when using a memory block. However, the common case is having small size elements, because when we work with big amounts of data we tend to use pointers. For example when we have a linked list of strings, we don't store all the chars, just a pointer to the char array.
@@ -55,14 +55,18 @@ Although I could have stopped here, I wanted to see how this evolves when changi
 
 <img src="https://fylux.github.io/public/img/list_vec/time.png" width="100%">
 
-This is such as an interesting graph. It's telling us which data structure is better depending on the size of the elements. As expected the performance of the vector decreases because of the cost of reallocating so much data, while the performance of the linked list with respect to the vector improve as the element's size increases.
+This is such as an interesting graph. It's telling us which data structure is better depending on the size of the elements. As expected the performance of the vector decreases because of the cost of reallocating so much data, while the performance of the linked list with respect to the vector improves as the elements size increases.
 
 <br/>
 ## Memory usage
-Although I've focused in analyzing the performance of these structures, I think that we should also take a look at the memory usage. Unlike speed, memory usage is way more clear how will it behave. Hereinafter we will refer to the number of elements as *n* and to the size of the element as *m*.
+Although I've focused on analyzing the performance of these structures, I think that we should also take a look at the memory usage. Unlike speed, memory usage is way more clear how will it behave. Hereinafter we will refer to the number of elements as *n* and to the size of the element as *m*.
 
 
 The size occupied by a double linked list is given by *m* plus two times the size of the pointer. Because the size of the pointer is expected to be 8 bytes, we can ensure that the memory used per element will be at least 16 bytes.
+
+$$
+n \cdot (16+m) 
+$$
 
 On the other side, the memory occupied by a vector depend on how much memory are we reserving. For this analysis, I'm going to consider the most widely used implementation of vector from C++ STL. This one reserves twice the space required to store the elements. Therefore, the memory used by our vector is given by:
 
@@ -78,7 +82,7 @@ $$
 m \cdot 2^{\lceil{log_2 {n}}\rceil} <> n \cdot (16+m) 
 $$
 
-Hence you can find easily which structure will require less memory. I wanted to illustrate this with a graph. We will insert 100,000 elements for different element sizes, to see how memory usage changes.
+Hence you can easily find which structure will require less memory. I wanted to illustrate this with a graph. We will insert 100,000 elements for different element sizes, to see how memory usage changes.
 
 <img src="https://fylux.github.io/public/img/list_vec/memory.png" width="100%">
 
@@ -88,18 +92,18 @@ What a nice graph. As you can see there is a point where lists start to use less
 ### Padding
 Before concluding, I must say that I've been bitting my tongue along the last paragraphs to avoid complicating the explanation.
 
-You have probably notice the curious stepped form of the curve of list memory usage. The truth is that linked list have one more drawback, which is the padding caused because of memory alignment. I don't intend to explain this problem, but basically, if you are using 8 byte pointers the memory used per element will be always a multiple of 8 even if it should be lower. Therefore, if we store a single-byte char, instead of needing 17 bytes we will need 24 bytes.
+You have probably notice the curious stepped form of the curve of list memory usage. The truth is that linked lists have one more drawback, which is the padding caused because of memory alignment. I don't intend to explain this problem, but basically, if you are using 8 byte pointers the memory used per element will be always a multiple of 8 even if it should be lower. Therefore, if we store a single-byte char, instead of needing 17 bytes we will need 24 bytes.
 
 
 If you want to dig deeper into this topic you can start <a href="http://www.catb.org/esr/structure-packing/">here</a>.   
 
 <br/>
 ## One last thing
-In this article I've worked with memory-contiguous linked lists. However, this won't always be the case. The negative effects of dispersed linked lists will be studied in future articles.
+In this article I've worked with memory-contiguous linked lists. However, often this won't be the case. The negative effects of dispersed linked lists will be studied in future articles.
 
 <br/>
 ## Conclusion
-After this analysis I guess that there is no doubt about which data structure is better for this particular case. However, I hope that you have not only learned to choose between list and vectors but also discovered which elements may affect the performance of data structures and how to analyze them for your personal purposes.
+After this analysis I guess that there is no doubt about which data structure is better for this particular case. However, I hope that this analysis is not only useful for choosing between lists and vectors but also for understanding which elements may affect the performance of data structures and how to analyze them for your personal purposes.
 
 <br/>
 ## Code

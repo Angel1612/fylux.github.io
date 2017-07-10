@@ -3,14 +3,14 @@ layout: post
 title: Memory Alignment and Performance
 ---
 ## Introduction
-Memory alignment is not a hot topic. Usually, we don't worry about it and very few people will bother to know if the pointer returned by <a href="http://www.cplusplus.com/reference/cstdlib/malloc/">*malloc*</a> is 16 or 64 bytes aligned. However, I suspect that memory alignment may affect the performance someway in x86-64 processors.
+Memory alignment is not a hot topic. Usually, we don't worry about it and very few people will bother to know if the pointer returned by <a href="http://www.cplusplus.com/reference/cstdlib/malloc/">*malloc*</a> is 16 or 64 bytes aligned. However, I suspect that memory alignment may affect the performance someway in <a href="https://en.wikipedia.org/wiki/X86-64">x86-64</a> processors.
 
 
 In this article I want to analyze if memory alignment has effects on performance. 
 
 <br/>
 ## Previous Work
-Although this has been partially studied I pretend to fill some gaps. On one side, <a href="http://lemire.me/blog/2012/05/31/data-alignment-for-speed-myth-or-reality/">Lemire D.</a> covered the performance when iterating all the elements of an array. However, this case is not that interesting because if you load all the elements the number of cache faults at the end will be almost the same. On the other hand <a href="https://github.com/lemire/Code-used-on-Daniel-Lemire-s-blog/tree/master/2012/05/31">Gauthier L.</a> covered a specific access pattern which showed better performance with aligned access.
+Although this has been partially studied I pretend to fill some gaps. On one side, <a href="http://lemire.me/blog/2012/05/31/data-alignment-for-speed-myth-or-reality/">Lemire D.</a> covered the performance when iterating all the elements of an array. However, this case is not that interesting because if you load all the elements the number of cache misses at the end will be almost the same. On the other hand <a href="https://github.com/lemire/Code-used-on-Daniel-Lemire-s-blog/tree/master/2012/05/31">Gauthier L.</a> covered a specific access pattern which showed better performance with aligned access.
 
 However, this approaches didn't considered the alignment of the memory allocated but the way data is accessed.
 
@@ -43,7 +43,7 @@ For this analysis we will use the function <a href="http://en.cppreference.com/w
 To test the performance we will allocate arrays with different memory alignments of 1,000,000 elements and then we will load 1% of those elements.
 
 
-The code used for the analysis can be found <a href="ttps://github.com/fylux/fylux.github.io/tree/master/public/code/alignment">here</a>. 
+The code used for the analysis can be found <a href="https://github.com/fylux/fylux.github.io/tree/master/public/code/alignment">here</a>. 
 
 <br/>
 ## Results

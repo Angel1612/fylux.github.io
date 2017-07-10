@@ -9,7 +9,9 @@ If you are interested in this algorithm or the concepts that it covers I beg you
 
 <br/>
 ## Modular Arithmetic
-First we are going to take all the <a href="https://en.wikipedia.org/wiki/Modular_multiplicative_inverse">invertible</a> numbers in Z<sub>60</sub>. Z<sub>60 </sub>represents the natural numbers in module 60. So Z<sub>60</sub> is set of the numbers from 0 to 59. If a number is >= 60 you can convert it to Z<sub>60</sub> by doing the mod 60 operation. And the invertible numbers in Z<sub>n</sub> are those numbers that have a modular multiplicative inverse. Which means that if you multiply the number in Z<sub>n</sub> by another number in Z<sub>n</sub> you obtain 1 in module n. And which numbers have inverse? The numbers in Z<sub>n</sub> that are  <a href="https://en.wikipedia.org/wiki/Coprime_integers">coprime</a> with n. <br />Two numbers are coprime if their greatest common divisor is 1. For example:
+First we are going to take all the <a href="https://en.wikipedia.org/wiki/Modular_multiplicative_inverse">invertible</a> numbers in Z<sub>60</sub>. Z<sub>60 </sub>represents the natural numbers in module 60. So Z<sub>60</sub> is set of the numbers from 0 to 59.
+
+If a number is >= 60 you can convert it to Z<sub>60</sub> by doing the mod 60 operation. And the invertible numbers in Z<sub>n</sub> are those numbers that have a modular multiplicative inverse. Which means that if you multiply the number in Z<sub>n</sub> by another number in Z<sub>n</sub> you obtain 1 in module n. And which numbers have inverse? The numbers in Z<sub>n</sub> that are  <a href="https://en.wikipedia.org/wiki/Coprime_integers">coprime</a> with n. <br />Two numbers are coprime if their greatest common divisor is 1. For example:
 >5 is the highest number that both 25 and 60 are divisible by.<br/> 
 >The only common divisor of 7 and 60 is 1, so they are coprime.
 
@@ -23,14 +25,14 @@ Now, we are going to generate numbers with the form $$n = 60*k + s$$ where *k* i
 
 We know that all the numbers with the previous form are primes candidates. Each one will be prime if it satisfies some rules which are based on binary quadratic forms. The sieve uses 3 algorithms (named 3.1, 3.2, and 3.3) depending on the module of the *s* used to generate the number. 
 
-There are three cases depending on the form of *s*. The number can prime if the equation associated with its form has an odd number of solutions:
+There are three cases depending on the form of *s*. The number can be prime if the equation associated with its form has an odd number of solutions:
 
  - $$s \in 1+4Z$$ Which means that $$s \hspace{2mm} mod \hspace{2mm} 4 = 1$$. It will be prime if the equation $$4x^2+y^2=n$$ has an odd number of solutions $$(x,y)$$ with $$x,y > 0$$.
  - $$s \in 1+6Z$$ Which means that  $$s \hspace{2mm} mod \hspace{2mm} 6 = 1$$.  It will be prime if the equation $$3x^2+y^2=n$$ has an odd number of solutions $$(x,y)$$ with $$x,y > 0$$.
  - $$s \in 11+12Z$$ Which means that  $$s \hspace{2mm} mod \hspace{2mm} 12 = 11$$.  It will be prime if the equation $$3x^2-y^2=n$$ has an odd number of solutions $$(x,y)$$ with $$x > y > 0$$.
 
 For example, the number 67 (60+7):<br/>
->s=7 so it has the form 1+6Z. The corresponding equation is  $$3x^2+y^2=n$$.
+>s=7 so it has the form 1 + 6Z. The corresponding equation is  $$3x^2+y^2=n$$.
 >The solutions that can be found are: 
 >x=1 y=8. So there are an odd number of solutions. Therefore 67 is still a prime candidate.
 
@@ -47,13 +49,13 @@ How do we know if a number is square free? Well, actually we don't know any algo
 
 <br/>
 ## Performance
-I'm sure that if you are interested in this algorithm is because of his performance. Unfortunately, I can't swear that this is faster than the <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">Sieve of Eratosthenes</a>. I don't pretend to analyze deeply the reasons, although if you are interested in knowing the details I recommend you to have a look at <a href="http://stackoverflow.com/questions/19388106/the-sieve-of-atkin/22161595#22161595">this answer</a> in StackOverflow.
+I'm sure that if you are interested in this algorithm is because of its performance. Unfortunately, I can't swear that this sieve is faster than the <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">Sieve of Eratosthenes</a>. I don't pretend to analyze deeply the reasons, although if you are interested in knowing the details I recommend you to have a look at <a href="http://stackoverflow.com/questions/19388106/the-sieve-of-atkin/22161595#22161595">this answer</a> in StackOverflow.
 <br/><br/>
-Remember that performance is not only about the number of operations that you have to do to obtain the result, is also about cache hits, instructions parallelization, branch predictions and more. 
+Remember that performance is not only about the number of operations that you have to do to obtain the result; is also about cache hits, instructions parallelization, branch predictions and much more. 
 
 <br/>
 ## Implementation
-I've implemented this algorithm focusing on making the code illustrative and simple, forgetting about performance related stuff that would make it harder to understand.<br/>
+I've implemented this algorithm focusing on making the code illustrative and simple, forgetting about performance related issues that would make it harder to understand.<br/>
 <a href="https://github.com/fylux/SieveOfAtkin">Implementation in C++</a><br/>
 <a href="https://github.com/fylux/SieveOfAtkin">Implementation in Maple</a>
 
