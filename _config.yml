@@ -7,7 +7,7 @@ gems:
   - jekyll-redirect-from
 
 # Setup
-title:               Fylux
+title:               'Fylux'
 tagline:             'Things'
 description:         'Algorithms, Maths, and all.'
 url:                 'https://fylux.github.io'
