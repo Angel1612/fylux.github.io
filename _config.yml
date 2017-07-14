@@ -3,6 +3,9 @@
 # Use of `relative_permalinks` ensures post links from the index work properly.
 permalink:           pretty
 
+gems:
+  - jekyll-redirect-from
+
 # Setup
 title:               Fylux
 tagline:             'Things'
@@ -13,7 +16,7 @@ paginate:            3
 
 # About/contact
 author:
-  name:              Fylux
+  name:              Alfonso L. Castaño
   url:               https://github.com/fylux/
   email:             alfonso.cama@hotmail.com
 
