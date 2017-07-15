@@ -2,8 +2,7 @@
 layout: null
 ---
 
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
 	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
 	xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -12,7 +11,7 @@ layout: null
 	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
 	>
 
-
+<channel>
  <title>{{ site.title }}</title>
  <atom:link href="{{ site.url }}/atom.xml" rel="self" type="application/rss+xml"/>
  <link>{{ site.url }}/</link>
@@ -34,4 +33,6 @@ layout: null
  </entry>
  {% endfor %}
 
+</channel>
 </rss>
+
