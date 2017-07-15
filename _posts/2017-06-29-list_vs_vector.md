@@ -36,7 +36,7 @@ When we use arrays is well known that all the data is contiguous and therefore n
 However, when we use linked lists we need to store pointers next to each element of the list. Therefore, in a block of memory we will find pointers and elements. Unfortunately, these pointers will occupy memory that could be filled by more elements. The effect that it will have on performance will depend on the size of the elements.
 
 
-In most 64 bits computers, pointers occupy 8 bytes of memory. That is quite a lot. If you are using a double linked list like C++ STL <list> you will be using 16 bytes for pointers per element. Thus if you store in each node 1 MB you won't notice the size of pointers and it won't matter when using a memory block. However, the common case is having small size elements, because when we work with big amounts of data we tend to use pointers. For example when we have a linked list of strings, we don't store all the chars, just a pointer to the char array.
+In most 64 bits computers, pointers occupy 8 bytes of memory. That is quite a lot. If you are using a double linked list like C++ STL <a href="http://www.cplusplus.com/reference/list/list/">*list*</a> you will be using 16 bytes for pointers per element. Thus if you store in each node 1 MB you won't notice the size of pointers and it won't matter when using a memory block. However, the common case is having small size elements, because when we work with big amounts of data we tend to use pointers. For example when we have a linked list of strings, we don't store all the chars, just a pointer to the char array.
 
 Furthermore, each insertion in a linked list requires allocating dynamic memory, which is not immediate. Hence linked lists don't look so nice when working with small elements.
 
