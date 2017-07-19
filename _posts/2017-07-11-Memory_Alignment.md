@@ -10,7 +10,7 @@ In this article I want to analyze if memory alignment has effects on performance
 
 <br/>
 ## Previous Work
-Although this has been partially studied I pretend to fill some gaps. On one side, <a href="http://lemire.me/blog/2012/05/31/data-alignment-for-speed-myth-or-reality/">Lemire D.</a> covered the performance when iterating all the elements of an array. However, this case is not that interesting because if you load all the elements the number of cache misses at the end will be almost the same. On the other hand <a href="https://github.com/lemire/Code-used-on-Daniel-Lemire-s-blog/tree/master/2012/05/31">Gauthier L.</a> covered a specific access pattern which showed better performance with aligned access.
+Although this has been partially studied I'll try to fill some gaps. On one side, <a href="http://lemire.me/blog/2012/05/31/data-alignment-for-speed-myth-or-reality/">Lemire D.</a> covered the performance when iterating all the elements of an array. However, this case is not that interesting because if you load all the elements the number of cache misses at the end will be almost the same. On the other hand <a href="https://github.com/lemire/Code-used-on-Daniel-Lemire-s-blog/tree/master/2012/05/31">Gauthier L.</a> covered a specific access pattern which showed better performance with aligned access.
 
 However, this approaches didn't considered the alignment of the memory allocated but the way data is accessed.
 
