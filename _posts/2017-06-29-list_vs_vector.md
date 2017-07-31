@@ -68,7 +68,7 @@ $$
 n \cdot (16+m) 
 $$
 
-On the other side, the memory occupied by a vector depend on how much memory are we reserving. For this analysis, I'm going to consider the most widely used implementation of vector from C++ STL. This one reserves twice the space required to store the elements. Therefore, the memory used by our vector is given by:
+On the other hand, the memory occupied by a vector depend on how much memory are we reserving. For this analysis, I'm going to consider the most widely used implementation of vector from C++ STL. This one reserves twice the space required to store the elements. Therefore, the memory used by our vector is given by:
 
 $$
 m \cdot 2^{\lceil{log_2 {n}}\rceil}
