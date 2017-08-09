@@ -6,14 +6,11 @@ title: Vector Autoregression Overview and Proposals
 Often we try to analyze huge amounts of data to find useful information or to predict future events. One of the most important types of dataset is <a href="https://en.wikipedia.org/wiki/Time_series">time series</a>. Time series represent a series of data points indexed in time order.
 There are plenty of models to analyze this kind of series; one of those is the Vector Autoregression Model.
 
-
 The <a href="https://en.wikipedia.org/wiki/Vector_autoregression">Vector Autoregression Model</a>, better known as *VAR*, is a model for time series that has been widely used in econometrics. The main idea of this model is that the value of a variable at a time point depends linearly on the value of different variables at previous instants of time. For example the number of births in a given month might be predicted from the value of the fertile population 9 months earlier.
-
 
 However, these kinds of model have an important computational cost. Fortunately, as in many other methods of machine learning now we have the required computing capacity to apply them to huge datasets. Furthermore, we can apply it not only to econometrics but also to different fields like health or weather, or simply to any problem which works with time series.
 
-
-In this article I will explain the fundamentals of VAR,  how to build and evaluate this model, an approach to find VAR models from a given data and parameters; and a proposal to take this method further using a guided search to find the best configuration for the model.
+In this article I will explain the fundamentals of VAR,  how to build and evaluate this model, an approach to find VAR models from a given data and parameters; and a proposal to take this method further using a guided search to find the best configuration for the model.<!--more-->
 
 <br/>
 ## Overview
@@ -164,7 +161,7 @@ Nevertheless, the convenience of relative residuals depends on the case. If we w
 
 Finally, we have to consider how we understand the residual when working with multiple variables. If we obtain relative residuals we can sum the residual of the different variables. However, if we think that fitting a certain variable is more important than fitting the others we should consider evaluating the residuals separately.
 
-
+<br/>
 ## Training
 When we've talked about residuals we have always considered that we are using all the information that we have to design the model. However, if we use all the data our algorithm may fall into <a href="https://en.wikipedia.org/wiki/Overfitting">overfitting</a> and obtain good results just for the data that we have but not for any other data with the same behavior. Therefore, we are not evaluating the quality of our model on forecasting.
 
@@ -182,7 +179,7 @@ Nevertheless, choosing the best parameters is a <a href="https://en.wikipedia.or
 
 The process of finding the best model can be divided in the following two blocks.
 
-
+<br/>
 ### Variables Classification
 As I mentioned previously, it's important to identify which variables can be predicted with the available data to avoid creating inconsistent models. Because the number of combinations is exponential we can't check all the possibilities. We could apply a well-studied generic <a href="https://en.wikipedia.org/wiki/Time_complexity#Polynomial_time">metaheuristic</a> for this task, although it might not be necessary.
 
@@ -195,7 +192,7 @@ Based on what I've just mentioned, we can test a configuration for each variable
 
 And because we said that we are looking for the model that works properly with as many dependent variables as possible we would take all the variables that we identified individually as dependent and put them all together. In most cases that should be the best model based on the mentioned heuristics.
 
-
+<br/>
 ### Time Dependency
 The other parameters that we have to choose are the number of time instants that the variables depend on, named *i* and *k*.
 
@@ -211,11 +208,11 @@ I'm a computer scientist, so all these equation systems are really nice but, how
 
 Well, the best part of the model is that is basically linear algebra. Therefore we can solve it using high performance linear algebra libraries. I would suggest any library based on <a href="https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms">BLAS</a> and <a href="https://en.wikipedia.org/wiki/LAPACK">LAPACK</a>. If we make a reasonable good implementation with these sorts of libraries we will be able to solve very big problems' instances.
 
-
+<br/>
 ### Matrix Decomposition
 Because the computational demanding part of this problem is solving the LLS system, we should focus on optimizing it. One of the best approaches is decomposing the matrix before solving the system, because it would simplify our matrices allowing the LLS solver to run faster. However <a href="https://en.wikipedia.org/wiki/Matrix_decomposition">matrix decomposition</a> is not the topic of this article, so I will just pick up the one that I consider the best option. <a href="https://en.wikipedia.org/wiki/QR_decomposition">QR</a> decomposition.
 
-
+<br/>
 ### Parallelism
 To obtain the highest performance, it's crucial to use parallel algorithms to solve the least squares system and the decomposition as fast as possible. Fortunately, most of the libraries that implement these functions know pretty well the importance of supporting parallelism.
 
