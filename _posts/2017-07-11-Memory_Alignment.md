@@ -25,13 +25,13 @@ Before continuing, I'll explain why random access could have drawbacks.
 Let's suppose that cache lines have a size of 64 bytes. And you have an element of that size. Thus if the data is 64 bytes aligned the element will perfectly fit in a cache line. 
 
 <center>
-<img src="http://fylux.github.io/public/img/alignment/aligned.png" width="65%">
+<img src="https://fylux.github.io/public/img/alignment/aligned.png" width="65%">
 </center>
 
 However, if doesn't fit in a cache line it will be stored between two lines. Therefore we will need to load two blocks of memory instead of one to use the element.
 
 <center>
-<img src="http://fylux.github.io/public/img/alignment/unaligned.png" width="65%"></center>
+<img src="https://fylux.github.io/public/img/alignment/unaligned.png" width="65%"></center>
 
 Furthermore, <a href="https://en.wikipedia.org/wiki/SIMD">SIMD</a> can't work with very low memory alignment, so programs which rely on these instructions may be affected.
 
@@ -55,7 +55,7 @@ The first main result is that I haven't seen serious differences while changing 
 
 Finally, after comparing the execution time for different memory alignments using element sizes between 32 and 96 bytes I've obtained the following graph:
 
-<img src="http://fylux.github.io/public/img/alignment/graph.png" width="100%">
+<img src="https://fylux.github.io/public/img/alignment/graph.png" width="100%">
 
 This shows that using very low memory alignment can affect the performance of our program. Nevertheless, using very restrictive memory alignment doesn't worth because I've seen any serious difference between memory alignments greater than 16 bytes.
 

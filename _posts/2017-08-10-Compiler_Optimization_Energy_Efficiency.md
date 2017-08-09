@@ -15,13 +15,13 @@ It has also been tried to scale the voltage dynamically depending on CPU usage, 
 So the ideal frequency change looks like this:
 
 <center>
-<img src="http://fylux.github.io/public/img/dae/good.png" width="70%">
+<img src="https://fylux.github.io/public/img/dae/good.png" width="70%">
 </center>
 
 But the real the frequency change would look something like this:
 
 <center>
-<img src="http://fylux.github.io/public/img/dae/real.png" width="70%">
+<img src="https://fylux.github.io/public/img/dae/real.png" width="70%">
 </center>
 
 The problem of the real case is that during the idle periods the frequency is not as low as it could (more power consumption) and during the high usage periods the frequency takes time to rise (less performance). For that reason the objective is to scale the voltage when the processor is going to be idle for a long time, for example when it's loading big amounts of information from memory.
@@ -34,34 +34,36 @@ Decoupled Access-Execution (<a href="http://dl.acm.org/citation.cfm?id=801719">D
 
 Let's consider an example. Very often we access an element of an array and then we perform some operations with it.
 
-
-    for (int i = 0; i < N; ++i) {
-        x = A[i];
-        /*Operations with X*/
-    }
+{% highlight c %}
+for (int i = 0; i < N; ++i) {
+    x = A[i];
+    /*Operations with X*/
+}
+{% endhighlight %}
 
 In this classical example loading an element doesn't require much CPU usage. However, scaling the voltage for just one element doesn't worth. If we represent the ideal CPU usage of this code it would look something like this:
 
 <center>
-<img src="http://fylux.github.io/public/img/dae/bad.png" width="80%">
+<img src="https://fylux.github.io/public/img/dae/bad.png" width="80%">
 </center>
 
 Nevertheless a compiler could propose the following change:
 
-    for (int i = 0; i < N; ++i) {
-        prefetch A[i];
-    }
-    
-    for (int i = 0; i < N; ++i) {
-        x = load A[i];
-        /*Operations with X*/
-    }
+{% highlight c %}
+for (int i = 0; i < N; ++i) {
+    prefetch A[i];
+}
 
+for (int i = 0; i < N; ++i) {
+    x = load A[i];
+    /*Operations with X*/
+}
+{% endhighlight %}
 
 Obtaining an almost ideal organization of the CPU usage, something almost like this:
 
 <center>
-<img src="http://fylux.github.io/public/img/dae/good.png" width="80%">
+<img src="https://fylux.github.io/public/img/dae/good.png" width="80%">
 </center>
 
 As you can see the idea of this technique is quite simple. In the Access phase we prefetch data to the L1 cache and in the Execution phase we use that data. Furthermore by grouping data loading we can take advantage of <a href="https://en.wikipedia.org/wiki/Memory-level_parallelism">memory-level parallelism</a>.
@@ -75,13 +77,13 @@ Although this technique is at early stages, a few benchmarks have already been d
 The first one compares the power consumption (normalized):
 
 <center>
-<img src="http://fylux.github.io/public/img/dae/benchmark_energy.png" width="60%">
+<img src="https://fylux.github.io/public/img/dae/benchmark_energy.png" width="60%">
 </center>
 
 And the second one the performance (normalized):
 
 <center>
-<img src="http://fylux.github.io/public/img/dae/benchmark_performance.png" width="60%">
+<img src="https://fylux.github.io/public/img/dae/benchmark_performance.png" width="60%">
 </center>
 
 The first thing you can notice is that the results depend a lot on the program. Therefore there are programs where DAE doesn't affect them at all. Secondly, although using DVFS without DAE improves energy efficiency it inevitably reduces performance;   drawback that is reduced with DAE.
