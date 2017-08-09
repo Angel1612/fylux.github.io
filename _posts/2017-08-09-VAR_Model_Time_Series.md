@@ -181,7 +181,7 @@ The process of finding the best model can be divided in the following two blocks
 
 <br/>
 ### Variables Classification
-As I mentioned previously, it's important to identify which variables can be predicted with the available data to avoid creating inconsistent models. Because the number of combinations is exponential we can't check all the possibilities. We could apply a well-studied generic <a href="https://en.wikipedia.org/wiki/Time_complexity#Polynomial_time">metaheuristic</a> for this task, although it might not be necessary.
+As I mentioned previously, it's important to identify which variables can be predicted with the available data to avoid creating inconsistent models. Because the number of combinations is exponential we can't check all the possibilities. We could apply a well-studied generic <a href="https://en.wikipedia.org/wiki/Metaheuristic">metaheuristic</a> for this task, although it might not be necessary.
 
 Our experience with this model has teach us that even if all the variables can be perfectly predicted, the best residual is obtained when taking only one variable as dependent and the rest as independent. Its residual is a bit lower than the one obtained considering all the variables as dependent. That's basically because there is less data to be fitted. Therefore we must promote models with more dependent variables.
 
