@@ -9,7 +9,7 @@ I would dare to say that <a href="https://en.wikipedia.org/wiki/Linked_list">lin
 In this article, I am going to compare the performance of linked lists against vectors when we want to store elements in order of insertion (*<a href="http://www.cplusplus.com/reference/vector/vector/push_back/">push_back</a>*). This is one of the few cases where I consider linked lists to be a good choice. I won't cover random insertion and elimination because there is no doubt about the poor performance of vectors in that case.
 
 
-I can recommend lots of comparisons like <a href="https://baptiste-wicht.com/posts/2012/12/cpp-benchmark-vector-list-deque.html">this</a> one comparing the performance of different data structures with respect to the number of elements. However, this doesn't show us the reasons and the results that we are looking for. Instead, I will try to explain the aspects that can affect their performance and how to choose the best option according to these factors, avoiding easy conclusions.
+I can recommend lots of comparisons like <a href="https://baptiste-wicht.com/posts/2012/12/cpp-benchmark-vector-list-deque.html">this</a> one comparing the performance of different data structures with respect to the number of elements. However, this doesn't show us the reasons and the results that we are looking for. Instead, I will try to explain the aspects that can affect their performance and how to choose the best option according to these factors, avoiding easy conclusions.<!--more-->
 
 <br/>
 ## Thinking

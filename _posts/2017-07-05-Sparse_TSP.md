@@ -19,7 +19,7 @@ The idea of every node connected with every node sounds sometimes too ideal. In 
 Although is not necessary being so literal to notice that working with <a href="https://en.wikipedia.org/wiki/Dense_graph">sparse graphs</a> instead of <a href="https://en.wikipedia.org/wiki/Complete_graph">complete graphs</a> might be interesting. Moreover, in this variation, we should be able to repeat nodes to ensure that we find the optimal tour.
 
 
-In this article, I will explain the Sparse Travelling Salesman Problem and an interesting approach to solve it.
+In this article, I will explain the Sparse Travelling Salesman Problem and an interesting approach to solve it.<!--more-->
 
 <br/>
 ## Overview

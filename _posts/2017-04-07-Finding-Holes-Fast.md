@@ -18,7 +18,7 @@ First of all, we should analyze the problem, so maybe we can make it simpler. We
 Remember the definition of *hole*. It's pointed by every node and it doesn't point at any node. Suppose we had two holes, *A* and *B*. Because they are *holes*, they must be pointed by all the nodes. Which means that *A* must be pointed by *B* and vice versa. But if it they point at each other they are pointing to a node, so they can't be *holes*.
 
 
-First lemma: *A graph has one or none holes*.
+First lemma: *A graph has one or none holes*.<!--more-->
 
 <br/>
 ## Common idea

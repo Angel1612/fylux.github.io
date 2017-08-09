@@ -5,7 +5,7 @@ title: Symmetric Triangular Matrix
 ## Introduction
 If you have worked with graphs you've probably made use of an <a href="https://en.wikipedia.org/wiki/Adjacency_matrix">adjacency matrix</a>. But if your graph is undirected, you can notice that the element [i][j] is equal to [j][i]. Something similar happens when doing DFA Minimization. Unfortunately, this way we are "wasting" half of the memory and it doesn't sound good.
 
-So what we would like to have is a data structure that works exactly the same way but using half of the memory. We can do it easily just with a bit of calculus. By the way, in a graph we don't usually need the diagonal but in my example I'm going to consider it to make it simpler.
+So what we would like to have is a data structure that works exactly the same way but using half of the memory. We can do it easily just with a bit of calculus. By the way, in a graph we don't usually need the diagonal but in my example I'm going to consider it to make it simpler.<!--more-->
 
 <br />
 ## Lower and Upper

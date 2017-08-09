@@ -15,7 +15,7 @@ Although this has been partially studied I'll try to fill some gaps. On the one 
 However, this approaches didn't considered the alignment of the memory allocated but the way data is accessed.
 
 
-Therefore, I will focus on analyzing if the alignment of the memory allocated affects the performance when doing random access. I won't force the unalignment; instead I will use memory allocators that only guarantee some level of alignment.
+Therefore, I will focus on analyzing if the alignment of the memory allocated affects the performance when doing random access. I won't force the unalignment; instead I will use memory allocators that only guarantee some level of alignment.<!--more-->
 
 <br/>
 ## Random Access

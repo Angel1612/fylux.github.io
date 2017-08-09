@@ -5,7 +5,7 @@ This sieve has in my opinion too much mathematics concepts for someone who doesn
 
 <br/>
 ## Paper
-If you are interested in this algorithm or the concepts that it covers I beg you to take a look at the <a href="http://www.ams.org/mcom/2004-73-246/S0025-5718-03-01501-1/S0025-5718-03-01501-1.pdf">paper</a> published by <a href="https://en.wikipedia.org/wiki/A._O._L._Atkin">Atkin</a> and <a href="https://en.wikipedia.org/wiki/Daniel_J._Bernstein">Bernstein</a> which is much more complete (although much more complex).
+If you are interested in this algorithm or the concepts that it covers I beg you to take a look at the <a href="http://www.ams.org/mcom/2004-73-246/S0025-5718-03-01501-1/S0025-5718-03-01501-1.pdf">paper</a> published by <a href="https://en.wikipedia.org/wiki/A._O._L._Atkin">Atkin</a> and <a href="https://en.wikipedia.org/wiki/Daniel_J._Bernstein">Bernstein</a> which is much more complete (although much more complex).<!--more-->
 
 <br/>
 ## Modular Arithmetic

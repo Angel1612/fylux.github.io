@@ -11,7 +11,7 @@ Basically, is a *probabilistic* data structure that using a significant small am
 
 And that's all it can do well.<br/>
 
-Uhm, definitely it looks curious. "May be in the set?" Usually we work with data structures that tell us things for sure. But that is the cost of using much less space. Let's have a look.
+Uhm, definitely it looks curious. "May be in the set?" Usually we work with data structures that tell us things for sure. But that is the cost of using much less space. Let's have a look.<!--more-->
 
 <br/>
 ## Structure
