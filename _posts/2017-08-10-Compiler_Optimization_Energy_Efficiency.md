@@ -26,7 +26,7 @@ But the real the frequency change would look something like this:
 
 The problem of the real case is that during the idle periods the frequency is not as low as it could (more power consumption) and during the high usage periods the frequency takes time to rise (less performance). For that reason the objective is to scale the voltage when the processor is going to be idle for a long time, for example when it's loading big amounts of information from memory.
 
-Therefore the ideal program would have long memory loading phases (<a href="https://en.wikipedia.org/wiki/Memory_bound_function">memory-bound</a>) interspersed with long high CPU usage phases (<a href="https://en.wikipedia.org/wiki/CPU-bound">compute-bound</a>). Based on this idea arises the following technique which aims to compile programs with the mentioned structure.
+Therefore the ideal program would have long memory loading phases (<a href="https://en.wikipedia.org/wiki/Memory_bound_function">memory-bound</a>) interspersed with long high CPU usage phases (<a href="https://en.wikipedia.org/wiki/CPU-bound">compute-bound</a>). Based on this idea arises the following technique which aims to compile programs with the mentioned structure.<!--more-->
 
 <br/>
 ## Decoupled Access-Execution
