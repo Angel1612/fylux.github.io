@@ -104,13 +104,15 @@ An approach to fix this limitation would be to consider prefetching to L2 and L3
 ### Search
 Another important limitation is how it can be applied when searching in data structures. For example, if we are looking for an element in an array, doesn't worth loading the full array if the element that we are looking for is at the first position. Or when we are doing a binary search and we need to know the value of the element loaded before choosing which element will be loaded.
 
+The current approach of this technique is to duplicate the code in these cases so it produces an increment of the size of the binaries. However, there are new approaches to reorder instructions instead of duplicating them like <a href="https://github.com/ktran/clairvoyance">Clairvoyance</a>.
+
 <br/>
 ### Architecture
 Finally, notice that this technique is very architecture dependent. On the one hand it relies on the capacity of the processor to use DVFS. And on the other hand the processor may already being doing some scheduling or changing cores instead of scaling voltage. For that reason I guess that results will vary a lot depending on the target architecture.
 
 <br/>
 ## Current Research
-The idea of decoupling access from execution was initially proposed by <a href="http://dl.acm.org/citation.cfm?id=801719">J.E. Smith</a> at 1982. Nowadays, this technique is under research at <a href="http://www.it.uu.se/">Uppsala University</a>. You can take a look at the <a href="https://www.researchgate.net/publication/269199564_Fix_the_code_Don't_tweak_the_hardware">paper</a> that this article is based on to find the details. In addition, there is an open source project to apply some of these ideas to LLVM. <a href="https://github.com/etascale/daedal">This</a> is the repository.
+The idea of decoupling access from execution was initially proposed by <a href="http://dl.acm.org/citation.cfm?id=801719">J.E. Smith</a> at 1982. Nowadays, this technique is under research at <a href="http://www.it.uu.se/">Uppsala University</a>. You can take a look at the <a href="https://www.researchgate.net/publication/269199564_Fix_the_code_Don't_tweak_the_hardware">paper</a> that this article is based on to find the details. In addition, <a href="https://github.com/etascale/daedal">this</a> is the repository of an open source project to apply some of these ideas to LLVM.
 
 I would like to thank <a href="http://katalog.uu.se/profile/?id=N12-1860">Dr. Alexandra Jimborean</a> for introducing me this technique in an invited talk at <a href="http://www.um.es/informatica/index.php">University of Murcia</a>.
 
