@@ -13,3 +13,8 @@ And about why I write this blog, well, Who cares?
 Feel free to contact me : alfonso.cama@hotmail.com
 
 *Good luck.*
+
+<br/>
+
+### Talks
+<a href="https://fylux.github.io/public/file/VAR_2017.pdf">VAR Models for Time Series Analysis and Forecasting</a>, Wroclaw University of Technology, Faculty of Electronics, November 7th, 2017.
