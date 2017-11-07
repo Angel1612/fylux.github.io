@@ -71,6 +71,6 @@ Finally we see that our last candidate is node 4, and if we check its row and co
 ## Implementation
 I've developed an implementation of this algorithm to show how our reasoning works:
 
-<a href="https://github.com/fylux/FindingHoles/tree/master/C%2B%2B">Implementation in C++</a>
+<a href="https://github.com/fylux/FindingHoles/tree/master/C%2B%2B">Implementation in C++</a><br/>
 <a href="https://github.com/fylux/FindingHoles/tree/master/Python">Implementation in Python</a>
 
