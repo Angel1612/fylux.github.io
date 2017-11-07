@@ -17,4 +17,4 @@ Feel free to contact me : alfonso.cama@hotmail.com
 <br/>
 
 ### Talks
-<a href="https://fylux.github.io/public/file/VAR_2017.pdf">VAR Models for Time Series Analysis and Forecasting</a>, Wroclaw University of Technology, Faculty of Electronics, November 7th, 2017.
+ + <a href="https://fylux.github.io/public/file/VAR_2017.pdf">VAR Models for Time Series Analysis and Forecasting</a>, Wroclaw University of Science and Technology, Faculty of Electronics, November 7th, 2017.
