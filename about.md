@@ -16,5 +16,9 @@ Feel free to contact me : alfonso.cama@hotmail.com
 
 <br/>
 
+### Publications
+ + <span style="font-size:18px;">Alfonso L. Castaño, Javier Cuenca, Domingo Giménez, Jose J. López-Espín, Alberto Pérez-Bernabeu: Obtaining the coefficients of a Vector Autoregression Model through minimization of parameter criteria. <a href="https://ola2018.sciencesconf.org/">International Workshop on Optimization and Learning: Challenges and Applications</a>, February 2018.</span>
+ 
+<br/>
 ### Talks
- + <a href="https://fylux.github.io/public/file/VAR_2017.pdf">VAR Models for Time Series Modeling and Forecasting</a>, Wroclaw University of Science and Technology, Faculty of Electronics, November 8th, 2017.
+ + <span style="font-size:18px;"><a href="https://fylux.github.io/public/file/VAR_2017.pdf">VAR Models for Time Series Modeling and Forecasting</a>, Wroclaw University of Science and Technology, Faculty of Electronics, November 8th, 2017.</span>
