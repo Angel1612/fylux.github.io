@@ -16,7 +16,7 @@ If a number is >= 60 you can convert it to Z<sub>60</sub> by doing the mod 60 op
 >The only common divisor of 7 and 60 is 1, so they are coprime.
 
 In the case of Z<sub>60</sub>, the invertible numbers are:<br/>
-*1, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 49, 53, 59*
+1 7 11 13 17 19 23 29 31 37 41 43 47 49 53 59
 
 <br/>
 ## Binary Quadratic Form

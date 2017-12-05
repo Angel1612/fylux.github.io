@@ -45,7 +45,7 @@ Furthermore, each insertion in a linked list requires allocating dynamic memory,
 As we have seen, it's not clear what results should be expected. The benefits of vectors related with space locality are clear, but we don't know how the cost of reallocating all the elements will affect when it's full.
 
 
-In our first test we will compare the time required to store 1,100,000 8 bytes elements in a list and a vector. This number has been specifically chosen to unsure that we will reallocate the vector almost just after finishing because it's a bit more than 2^20.
+In our first test we will compare the time required to store 1,100,000 8 bytes elements in a list and a vector. This number has been specifically chosen to unsure that we will reallocate the vector almost just after finishing because it's a bit more than 2<sup>20</sup>.
 
 <img src="https://fylux.github.io/public/img/list_vec/worst_case.png" width="100%">
 

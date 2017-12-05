@@ -96,7 +96,7 @@ Obviously DAE is not perfect and although I don't know it thoroughly, I've thoug
 
 <br/>
 ### Cache Size
-The main idea of DAE is prefetching data to L1 cache. But it's well known that L1 cache is very small so the amount of data that we can prefetch is limited by its size. Therefore, the memory-bound phased won't be as long as we would like.
+The main idea of this approach is prefetching data to L1 cache. But it's well known that L1 cache is very small so the amount of data that we can prefetch is limited by its size. Therefore, the memory-bound phased won't be as long as we would like.
 
 An approach to fix this limitation would be to consider prefetching to L2 and L3 cache. However, this would have effects on performance, because loading data from these cache levels takes way longer than loading from L1. Thus this option would be interesting when it's crucial to reduce power consumption.
 
