@@ -27,12 +27,12 @@ We know that all the numbers with the previous form are primes candidates. Each 
 
 There are three cases depending on the form of *s*. The number can be prime if the equation associated with its form has an odd number of solutions:
 
- - s &isin; 1+4Z Which means that s mod 4 = 1. It will be prime if the equation 4x<sup>2</sup>+y<sup>2</sup>=n has an odd number of solutions (x,y) where x,y > 0.
- - s &isin; 1+6Z Which means that s mod 6 = 1. It will be prime if the equation 3x<sup>2</sup>+y<sup>2</sup>=n has an odd number of solutions (x,y) where x,y > 0.
- - s &isin; 11+12Z Which means that s mod 12 = 11. It will be prime if the equation 3x<sup>2</sup>-y<sup>2</sup>=n has an odd number of solutions (x,y) where x > y > 0.
+ - <b>s &isin; 1+4Z</b> Which means that <b>s mod 4 = 1</b>. It will be prime if the equation <b>4x<sup>2</sup> + y<sup>2</sup> = n</b> has an odd number of solutions (x,y) where x,y > 0.
+ - <b>s &isin; 1+6Z</b> Which means that <b>s mod 6 = 1</b>. It will be prime if the equation <b>3x<sup>2</sup> + y<sup>2</sup> = n</b> has an odd number of solutions (x,y) where x,y > 0.
+ - <b>s &isin; 11+12Z</b> Which means that <b>s mod 12 = 11</b>. It will be prime if the equation <b>3x<sup>2</sup> - y<sup>2</sup> = n</b> has an odd number of solutions (x,y) where x > y > 0.
 
-For example, the number 67 (60+7):<br/>
->s=7 so it has the form 1 + 6Z. The corresponding equation is 3x<sup>2</sup>+y<sup>2</sup>=n.
+For example, the number 67 (60 + 7):<br/>
+>s=7 so it has the form 1 + 6Z. The corresponding equation is 3x<sup>2</sup> + y<sup>2</sup> = n.
 >The solutions that can be found are: 
 >x=1 y=8. So there are an odd number of solutions. Therefore 67 is still a prime candidate.
 
@@ -43,7 +43,7 @@ The hard part of this is how to find the solutions for those equations. The pape
 Finally, if after the previous algorithm the number is still a prime candidate we have to check if the number is square free. If it is, the number is prime!
 <br/>
 By the way, square free means that if you factorize the number you won't find any factor repeated. For example:<br/>
->12 is not square free because it's equal to 2\*2\*3, and we can see that the factor 2 is repeated.
+>12 is not square free because it's equal to 2·2·3, and we can see that the factor 2 is repeated.
 
 How do we know if a number is square free? Well, actually we don't know any algorithm that check it in polynomial time, so you can check if the number is divisible by the square of any of the primes that you have already calculated. 
 

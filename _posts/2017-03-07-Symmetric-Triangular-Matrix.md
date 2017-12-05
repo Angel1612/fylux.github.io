@@ -15,11 +15,9 @@ We are going to use a linear array to keep a fast access time and we will calcul
 
 We are going to use the lower triangular and I'll tell you why later.
 
-The size of the array instead of N<sup>2</sup> will be *1 + 2 + 3 + ... + N = (N<sup>2</sup>+N)/2* an <a href="https://en.wikipedia.org/wiki/Arithmetic_progression">arithmetic progression</a>, isn't it?
+The size of the array instead of N<sup>2</sup> will be *1 + 2 + 3 + ... + N = (N<sup>2</sup> + N)/2* an <a href="https://en.wikipedia.org/wiki/Arithmetic_progression">arithmetic progression</a>, isn't it?
 
-Now to obtain the position [i,j] in the matrix, we will do the following:
-
-Because it is lower triangular, if j is greater than i, then i=j and j=i.
+Now to obtain the position [i,j] in the matrix, we will do the following. Because it is lower triangular, if j is greater than i, then i=j and j=i.
 So the index in the linear array is:
 
 $$
