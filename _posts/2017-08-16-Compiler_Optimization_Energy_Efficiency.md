@@ -30,7 +30,7 @@ Therefore the ideal program would have long memory loading phases (<a href="http
 
 <br/>
 ## Decoupled Access-Execution
-Decoupled Access-Execution (<a href="http://dl.acm.org/citation.cfm?id=801719">DAE</a>) is a compiler optimization technique which aims to reorder the instructions of the code to group memory loading instructions to create long memory-bound and compute-bound phases. This way DVFS can be applied effectively.
+Decoupled Access-Execution (<a href="http://dl.acm.org/citation.cfm?id=801719">DAE</a>) is a hardware architecture proposed by <a href="http://dl.acm.org/citation.cfm?id=801719">J.E. Smith</a> in 1982. The main feature of this architecture is a high degree of decoupling between operand access and execution. However, the idea of DAE can be oriented to a software approach. We can use it as a compiler optimization technique to reorder the instructions of the code to group memory loading instructions to create long memory-bound and compute-bound phases. This way DVFS can be applied effectively.
 
 Let's consider an example. Very often we access an element of an array and then we perform some operations with it.
 
@@ -112,7 +112,7 @@ Finally, notice that this technique is very architecture dependent. On the one h
 
 <br/>
 ## Current Research
-The idea of decoupling access from execution was initially proposed by <a href="http://dl.acm.org/citation.cfm?id=801719">J.E. Smith</a> at 1982. Nowadays, this technique is under research at <a href="http://www.it.uu.se/">Uppsala University</a>. You can take a look at the <a href="https://www.researchgate.net/publication/269199564_Fix_the_code_Don't_tweak_the_hardware">paper</a> that this article is based on to find the details. In addition, <a href="https://github.com/etascale/daedal">this</a> is the repository of an open source project to apply some of these ideas to LLVM.
+You can take a look at the <a href="https://www.researchgate.net/publication/269199564_Fix_the_code_Don't_tweak_the_hardware">paper</a> that this article is based on to find the details. In addition, <a href="https://github.com/etascale/daedal">this</a> is the repository of an open source project to apply some of these ideas to LLVM.
 
 I would like to thank <a href="http://katalog.uu.se/profile/?id=N12-1860">Dr. Alexandra Jimborean</a> for introducing me this technique in an invited talk at <a href="http://www.um.es/informatica/index.php">University of Murcia</a>.
 
